@@ -56,3 +56,21 @@ h1 {
 .character strong {
     color: #d32f2f;
 }
+document.getElementById('generate').addEventListener('click', generateCharacter);
+
+function generateCharacter() {
+    const names = ['李寻欢', '张无忌', '令狐冲', '黄蓉', '王语嫣'];
+    const personalities = ['豪迈', '机智', '仁慈', '狡猾', '冷酷'];
+    const appearances = ['英俊', '潇洒', '秀丽', '端庄', '威猛'];
+    const origins = ['少林', '武当', '峨眉', '丐帮', '明教'];
+
+    const name = names[Math.floor(Math.random() * names.length)];
+    const personality = personalities[Math.floor(Math.random() * personalities.length)];
+    const appearance = appearances[Math.floor(Math.random() * appearances.length)];
+    const origin = origins[Math.floor(Math.random() * origins.length)];
+
+    document.getElementById('name').textContent = name;
+    document.getElementById('personality').textContent = personality;
+    document.getElementById('appearance').textContent = appearance;
+    document.getElementById('origin').textContent = origin;
+}
