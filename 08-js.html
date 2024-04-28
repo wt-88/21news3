@@ -1,76 +1,23 @@
-body, html {
-    height: 100%;
-    margin: 0;
-    font-family: 'Zhi Mang Xing', cursive; /* 使用特殊字体，需要自行查找支持的古风字体 */
-    background: #f4f4f4;
-}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>武侠人物生成器</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; }
+        #character { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <button id="generate">生成武侠人物</button>
+    <div id="character">
+        <h2>人物信息</h2>
+        <p><strong>姓名：</strong><span id="name"></span></p>
+        <p><strong>性格：</strong><span id="personality"></span></p>
+        <p><strong>形象：</strong><span id="appearance"></span></p>
+        <p><strong>出身：</strong><span id="origin"></span></p>
+    </div>
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-h1 {
-    font-size: 2.5em;
-    color: #d32f2f;
-    text-shadow: 2px 2px 4px #000000;
-}
-
-.btn {
-    font-size: 1em;
-    padding: 10px 20px;
-    margin: 10px;
-    color: #fff;
-    background: #d32f2f;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.btn:hover {
-    background: #b22d2d;
-}
-
-.character {
-    margin-top: 20px;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
-
-.character h2 {
-    color: #333;
-}
-
-.character p {
-    font-size: 1.2em;
-    color: #666;
-    margin: 5px 0;
-}
-
-.character strong {
-    color: #d32f2f;
-}
-document.getElementById('generate').addEventListener('click', generateCharacter);
-
-function generateCharacter() {
-    const names = ['李寻欢', '张无忌', '令狐冲', '黄蓉', '王语嫣'];
-    const personalities = ['豪迈', '机智', '仁慈', '狡猾', '冷酷'];
-    const appearances = ['英俊', '潇洒', '秀丽', '端庄', '威猛'];
-    const origins = ['少林', '武当', '峨眉', '丐帮', '明教'];
-
-    const name = names[Math.floor(Math.random() * names.length)];
-    const personality = personalities[Math.floor(Math.random() * personalities.length)];
-    const appearance = appearances[Math.floor(Math.random() * appearances.length)];
-    const origin = origins[Math.floor(Math.random() * origins.length)];
-
-    document.getElementById('name').textContent = name;
-    document.getElementById('personality').textContent = personality;
-    document.getElementById('appearance').textContent = appearance;
-    document.getElementById('origin').textContent = origin;
-}
+    <script src="script.js"></script>
+</body>
+</html>
