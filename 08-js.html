@@ -1,23 +1,32 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <title>武侠人物生成器</title>
-    <style>
-        body { font-family: 'Arial', sans-serif; }
-        #character { margin-top: 20px; }
-    </style>
-</head>
-<body>
-    <button id="generate">生成武侠人物</button>
-    <div id="character">
-        <h2>人物信息</h2>
-        <p><strong>姓名：</strong><span id="name"></span></p>
-        <p><strong>性格：</strong><span id="personality"></span></p>
-        <p><strong>形象：</strong><span id="appearance"></span></p>
-        <p><strong>出身：</strong><span id="origin"></span></p>
-    </div>
+document.getElementById('generate').addEventListener('click', generateCharacters);
 
-    <script src="script.js"></script>
-</body>
-</html>
+function generateCharacters() {
+    const names = ['李寻欢', '张无忌', '令狐冲', '黄蓉', '王语嫣'];
+    const personalities = ['豪迈', '机智', '仁慈', '狡猾', '冷酷'];
+    const appearances = ['英俊', '潇洒', '秀丽', '端庄', '威猛'];
+    const origins = ['少林', '武当', '峨眉', '丐帮', '明教'];
+
+    const charactersContainer = document.getElementById('characters');
+    charactersContainer.innerHTML = ''; // 清空之前的人物信息
+
+    for (let i = 0; i < 4; i++) { // 生成四个人物
+        const name = names[Math.floor(Math.random() * names.length)];
+        const personality = personalities[Math.floor(Math.random() * personalities.length)];
+        const appearance = appearances[Math.floor(Math.random() * appearances.length)];
+        const origin = origins[Math.floor(Math.random() * origins.length)];
+
+        // 创建人物信息的HTML元素
+        const characterCard = document.createElement('div');
+        characterCard.className = 'character';
+        characterCard.innerHTML = `
+            <h2>人物${i + 1}</h2>
+            <p><strong>姓名：</strong> ${name}</p>
+            <p><strong>性格：</strong> ${personality}</p>
+            <p><strong>形象：</strong> ${appearance}</p>
+            <p><strong>出身：</strong> ${origin}</p>
+        `;
+
+        // 将新创建的元素添加到页面中
+        charactersContainer.appendChild(characterCard);
+    }
+}
